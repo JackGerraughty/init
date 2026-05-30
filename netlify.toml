@@ -1,6 +1,5 @@
 [build]
-  command = "hugo"
-  publish = "public"
+  publish = "."
 
-[build.environment]
-  HUGO_VERSION = "0.116.0"
+[functions]
+  directory = "netlify/functions"
