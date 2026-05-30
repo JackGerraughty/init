@@ -1,6 +1,9 @@
 [functions]
   directory = "netlify/functions"
 
+[functions.server]
+  runtime = "python3.9"
+
 [[redirects]]
   from = "/*"
   to = "/.netlify/functions/server"
