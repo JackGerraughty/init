@@ -1,8 +1,6 @@
 {
-    "build": {
-      "builder": "python"
-    },
-    "deploy": {
-      "startCommand": "python3 server.py"
-    }
+  "$schema": "https://schema.railpack.com",
+  "deploy": {
+    "startCommand": "gunicorn server:app --bind 0.0.0.0:$PORT"
   }
+}
