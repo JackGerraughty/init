@@ -1,5 +1,5 @@
 {
-    "name": "phishing-server",
+    "name": "congrats-server",
     "version": "1.0.0",
     "scripts": {
       "start": "python server.py"

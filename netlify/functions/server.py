@@ -1,8 +1,6 @@
-from flask import Flask, request, render_template, send_from_directory
+from flask import Flask, render_template, send_from_directory
 import os
-import json
 import serverless_wsgi
-
 
 BASE_DIR = os.path.abspath(
     os.path.join(os.path.dirname(__file__), "../..")
@@ -14,15 +12,15 @@ app = Flask(
     static_folder=os.path.join(BASE_DIR, "static")
 )
 
-@app.route('/')
+@app.route("/")
 def index():
-    return render_template('phishing.html')
+    return render_template("congrats.html")
 
-@app.route('/exploit')
-def stuff():
+@app.route("/example")
+def example():
     return send_from_directory(
         os.path.join(BASE_DIR, "static"),
-        "exploit"
+        "example.py"
     )
 
 def handler(event, context):

@@ -1,6 +1,0 @@
-{
-    "port": 80,
-    "ssl": false,
-    "domain": "phishing.example.com",
-    "webhook": ""
-}
