@@ -2,9 +2,7 @@ from flask import Flask, render_template, send_from_directory
 import os
 import serverless_wsgi
 
-BASE_DIR = os.path.abspath(
-    os.path.join(os.path.dirname(__file__), "../..")
-)
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 app = Flask(
     __name__,
