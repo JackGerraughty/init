@@ -13,6 +13,10 @@ app = Flask(
 def index():
     return render_template("congrats.html")
 
+@app.route("/health")
+def health():
+    return "ok", 200
+
 @app.route("/example")
 def example():
     return send_from_directory(
