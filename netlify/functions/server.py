@@ -1,16 +1,29 @@
 from flask import Flask, request, render_template, send_from_directory
 import os
 import json
+import serverless_wsgi
 
-app = Flask(__name__, template_folder='Templates')
+
+BASE_DIR = os.path.abspath(
+    os.path.join(os.path.dirname(__file__), "../..")
+)
+
+app = Flask(
+    __name__,
+    template_folder=os.path.join(BASE_DIR, "templates"),
+    static_folder=os.path.join(BASE_DIR, "static")
+)
 
 @app.route('/')
 def index():
     return render_template('phishing.html')
 
 @app.route('/exploit')
-def exploit():
-    return send_from_directory('static', 'exploit.py')
+def stuff():
+    return send_from_directory(
+        os.path.join(BASE_DIR, "static"),
+        "exploit"
+    )
 
-if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=80)
+def handler(event, context):
+    return serverless_wsgi.handle_request(app, event, context)
