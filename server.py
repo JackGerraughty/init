@@ -1,6 +1,5 @@
 from flask import Flask, render_template, send_from_directory
 import os
-import serverless_wsgi
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
@@ -20,9 +19,6 @@ def example():
         os.path.join(BASE_DIR, "static"),
         "example.py"
     )
-
-def handler(event, context):
-    return serverless_wsgi.handle_request(app, event, context)
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 8080))
