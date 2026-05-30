@@ -23,3 +23,7 @@ def example():
 
 def handler(event, context):
     return serverless_wsgi.handle_request(app, event, context)
+
+if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 8080))
+    app.run(host="0.0.0.0", port=port)
