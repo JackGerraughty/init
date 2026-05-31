@@ -1,3 +1,1 @@
-Flask==2.3.2
-Werkzeug==2.3.7
-gunicorn==22.0.0
+# This server uses only the Python standard library.

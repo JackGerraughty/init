@@ -1,7 +1,6 @@
 {
   "$schema": "https://schema.railpack.com",
-  "language": "python",
   "deploy": {
-    "startCommand": "python3 server.py"
+    "startCommand": "python server.py"
   }
 }
