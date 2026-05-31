@@ -1,11 +1,16 @@
 import os
+import socket
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 
 
 BASE_DIR = Path(__file__).resolve().parent
-HOST = "0.0.0.0"
+HOST = "::"
 PORT = int(os.environ.get("PORT", "8080"))
+
+
+class DualStackHTTPServer(ThreadingHTTPServer):
+    address_family = socket.AF_INET6
 
 
 class Handler(BaseHTTPRequestHandler):
@@ -87,4 +92,4 @@ class Handler(BaseHTTPRequestHandler):
 
 if __name__ == "__main__":
     print(f"Starting server on {HOST}:{PORT}", flush=True)
-    ThreadingHTTPServer((HOST, PORT), Handler).serve_forever()
+    DualStackHTTPServer((HOST, PORT), Handler).serve_forever()
